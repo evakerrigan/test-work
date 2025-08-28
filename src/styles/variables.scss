@@ -1,0 +1,56 @@
+// Цвета из дизайна
+$color-sidebar-bg: #2c2c2c; // Темная боковая панель
+$color-sidebar-text: #ffffff; // Белый текст в сайдбаре
+$color-sidebar-active: #4a4a4a; // Активный пункт меню
+$color-main-bg: #f8f9fa; // Светлый фон главной области
+$color-card-bg: #ffffff; // Белый фон карточек
+$color-border: #e9ecef; // Границы карточек
+$color-text-primary: #212529; // Основной текст
+$color-text-secondary: #6c757d; // Вторичный текст
+$color-edit-button: #007bff; // Синяя кнопка редактирования
+$color-delete-button: #dc3545; // Красная кнопка удаления
+
+$danger-color: #c24f59;
+$danger-color-bg: #fef2f3;
+$danger-color-dark: #672a30;
+
+// Размеры
+$sidebar-width: 280px; // Ширина боковой панели
+$card-border-radius: 8px; // Радиус карточек
+$photo-size: 156px; // Размер фотографий
+
+// Типографика
+$font-family-base:
+  'Inter',
+  -apple-system,
+  BlinkMacSystemFont,
+  'Segoe UI',
+  Roboto,
+  sans-serif;
+$font-size-base: 16px;
+$font-size-sm: 14px;
+$font-size-lg: 18px;
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+
+// Отступы
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+
+// Границы
+$border-radius: 4px;
+$border-radius-lg: 8px;
+$border-width: 1px;
+
+// Тени
+$box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+$box-shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.15);
+
+// Breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;

@@ -1,6 +1,5 @@
-// import "./App.css";
-
 function App() {
+  // throw new Error('Test Error Boundary');
   return <></>;
 }
 

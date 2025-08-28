@@ -9,4 +9,14 @@ export default defineConfig({
       '@': '/src',
     },
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@use "@/styles/variables.scss" as *;\n`,
+      },
+    },
+    modules: {
+      localsConvention: 'camelCase',
+    },
+  },
 });
