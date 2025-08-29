@@ -1,0 +1,60 @@
+@use '@/styles/variables.scss' as *;
+
+.main-menu {
+  width: 48px;
+  height: 100vh;
+  background-color: $color-main-menu-bg;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: $spacing-lg 0;
+  flex-shrink: 0;
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+    align-items: center;
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+    align-items: center;
+  }
+
+  &__item {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: #9ca3af;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+
+    &--active {
+      background-color: rgba(255, 255, 255, 0.15);
+      color: #fff;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.15);
+        color: #fff;
+      }
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+}
