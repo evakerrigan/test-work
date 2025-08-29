@@ -31,3 +31,8 @@ npm run dev
 Для проекты выбрана модульная архитектура bulletproof-react.
 
 https://github.com/alan2207/bulletproof-react ⭐️ 32000 звезд
+
+### Что сделано:
+
+1. Error Boundary
+2. Сделан роутинг
