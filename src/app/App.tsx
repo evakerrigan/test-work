@@ -1,6 +1,8 @@
+import { RouterProvider } from 'react-router-dom';
+import { router } from './router';
+
 function App() {
-  // throw new Error('Test Error Boundary');
-  return <></>;
+  return <RouterProvider router={router} />;
 }
 
 export default App;
