@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import styles from './MainMenu.module.scss';
 import {
   LogoTreeIcon,
-  CompanyIcon,
+  OrganizationIcon,
   SearchIcon,
   SettingsIcon,
   SignOutIcon,
@@ -11,18 +12,12 @@ import {
 interface MainMenuItem {
   id: string;
   icon: React.ReactNode;
-  isActive?: boolean;
 }
 
 const mainMenuItems: MainMenuItem[] = [
   {
-    id: 'dashboard',
-    icon: <LogoTreeIcon size={18} />,
-  },
-  {
     id: 'organizations',
-    icon: <CompanyIcon size={18} />,
-    isActive: true,
+    icon: <OrganizationIcon size={18} />,
   },
   {
     id: 'search',
@@ -39,14 +34,52 @@ const mainMenuItems: MainMenuItem[] = [
 ];
 
 export const MainMenu = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const getActiveItem = () => {
+    const path = location.pathname;
+    if (path === '/' || path.startsWith('/organizations'))
+      return 'organizations';
+    if (path === '/search') return 'search';
+    if (path === '/settings') return 'settings';
+    return 'organizations';
+  };
+
+  const handleItemClick = (itemId: string) => {
+    switch (itemId) {
+      case 'organizations':
+        navigate('/organizations');
+        break;
+      case 'search':
+        navigate('/search');
+        break;
+      case 'settings':
+        navigate('/settings');
+        break;
+      case 'logout':
+        navigate('/sign-in');
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
     <div className={styles.mainMenu}>
       <div className={styles.mainMenu__top}>
-        {mainMenuItems.slice(0, 3).map((item) => (
+        <Link to="/" className={styles.mainMenu__logo}>
+          <LogoTreeIcon size={25} className={styles.mainMenu__icon} />
+        </Link>
+
+        {mainMenuItems.slice(0, 2).map((item) => (
           <button
             key={item.id}
+            onClick={() => handleItemClick(item.id)}
             className={`${styles.mainMenu__item} ${
-              item.isActive ? styles['mainMenu__item--active'] : ''
+              getActiveItem() === item.id
+                ? styles['mainMenu__item--active']
+                : ''
             }`}
           >
             {item.icon}
@@ -54,8 +87,16 @@ export const MainMenu = () => {
         ))}
       </div>
       <div className={styles.mainMenu__bottom}>
-        {mainMenuItems.slice(3).map((item) => (
-          <button key={item.id} className={styles.mainMenu__item}>
+        {mainMenuItems.slice(2).map((item) => (
+          <button
+            key={item.id}
+            onClick={() => handleItemClick(item.id)}
+            className={`${styles.mainMenu__item} ${
+              getActiveItem() === item.id
+                ? styles['mainMenu__item--active']
+                : ''
+            }`}
+          >
             {item.icon}
           </button>
         ))}
