@@ -1,0 +1,96 @@
+@use '@/styles/variables.scss' as *;
+
+.searchPage {
+  padding: $spacing-xl;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  &__header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  &__title {
+    font-size: 2.5rem;
+    font-weight: $font-weight-bold;
+    color: $color-button-filled-primary-bg;
+    margin-bottom: 0.5rem;
+  }
+
+  &__subtitle {
+    font-size: 1.1rem;
+    color: $color-text-secondary;
+    margin: 0;
+  }
+
+  &__searchSection {
+    margin-bottom: 3rem;
+  }
+
+  &__searchInput {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: $spacing-lg;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__input {
+    flex: 1;
+    padding: $spacing-md $spacing-lg;
+    border: 2px solid $color-border;
+    border-radius: 12px;
+    font-size: $font-size-base;
+    outline: none;
+    transition: border-color 0.2s ease;
+
+    &:focus {
+      border-color: $color-button-filled-primary-bg;
+    }
+
+    &::placeholder {
+      color: $color-text-secondary;
+    }
+  }
+
+  &__searchButton {
+    border-radius: 12px !important;
+    padding: $spacing-md $spacing-lg !important;
+
+    svg {
+      fill: currentColor;
+    }
+  }
+
+  &__filters {
+    display: flex;
+    justify-content: center;
+    gap: $spacing-md;
+    flex-wrap: wrap;
+  }
+}
+
+// Адаптивность для мобильных устройств
+@media (max-width: $breakpoint-md) {
+  .searchPage {
+    padding: $spacing-md;
+
+    &__title {
+      font-size: 2rem;
+    }
+
+    &__searchInput {
+      flex-direction: column;
+    }
+
+    &__filters {
+      gap: $spacing-sm;
+    }
+
+    &__filterButton {
+      padding: $spacing-sm $spacing-md !important;
+      font-size: 0.9rem;
+    }
+  }
+}
