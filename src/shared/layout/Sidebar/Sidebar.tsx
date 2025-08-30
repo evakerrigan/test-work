@@ -1,7 +1,8 @@
 import { NavLink } from 'react-router-dom';
 import styles from './Sidebar.module.scss';
 import { MainMenu } from '../MainMenu';
-import { CompanyIcon, ContractorIcon, UserIcon } from '@/shared/ui';
+import { OrganizationIcon, ContractorIcon, UserIcon } from '@/shared/ui';
+import { Button } from '@/shared/ui/Button';
 
 interface NavigationItem {
   id: string;
@@ -15,7 +16,7 @@ const navigationItems: NavigationItem[] = [
     id: 'organizations',
     label: 'Organizations',
     path: '/organizations',
-    icon: CompanyIcon,
+    icon: OrganizationIcon,
   },
   {
     id: 'contractors',
@@ -56,18 +57,18 @@ export const Sidebar = () => {
               const IconComponent = item.icon;
               return (
                 <li key={item.id} className={styles.sidebar__item}>
-                  <NavLink
-                    to={item.path}
-                    className={({ isActive }) =>
-                      `${styles.sidebar__link} ${
-                        isActive ? styles['sidebar__link--active'] : ''
-                      }`
-                    }
-                  >
-                    <span className={styles.sidebar__icon}>
-                      <IconComponent size={20} />
-                    </span>
-                    <span className={styles.sidebar__text}>{item.label}</span>
+                  <NavLink to={item.path} className={styles.sidebar__link}>
+                    {({ isActive }) => (
+                      <Button
+                        as="div"
+                        variant={isActive ? 'primary' : 'secondary'}
+                        centerLabel
+                        className={styles.sidebar__button}
+                        leftIcon={<IconComponent size={20} />}
+                      >
+                        {item.label}
+                      </Button>
+                    )}
                   </NavLink>
                 </li>
               );
