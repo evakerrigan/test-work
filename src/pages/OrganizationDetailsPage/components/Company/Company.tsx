@@ -95,7 +95,7 @@ export const Company: React.FC<CompanyProps> = observer((props) => {
           </div>
         ) : (
           <Button
-            variant="secondary"
+            variant="flattened"
             leftIcon={<EditIcon />}
             onClick={() => setIsEdit(true)}
           >

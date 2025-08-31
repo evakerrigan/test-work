@@ -54,7 +54,7 @@ export const Photos: React.FC<PhotosProps> = ({ title, photos }) => {
             onChange={onFileChange}
           />
           <Button
-            variant="secondary"
+            variant="flattened"
             leftIcon={<AddIcon />}
             onClick={onAddClick}
           >

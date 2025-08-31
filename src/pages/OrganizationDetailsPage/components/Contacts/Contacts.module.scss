@@ -4,37 +4,38 @@
   background: $color-card-bg;
   border-radius: 12px;
   border: 1px solid $color-border;
-  padding: 24px;
+  padding: 25px 24px 33px 24px;
   box-shadow: $box-shadow;
-  margin-bottom: 16px;
+  margin-bottom: 17px;
 }
 
 .sectionHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 16px;
+  margin-bottom: 26px;
 }
 
 .sectionTitle {
   margin: 0;
-  font-size: 18px;
+  font-size: $font-size-base;
   font-weight: 600;
 }
 
 .detailsGrid {
   display: grid;
-  row-gap: 14px;
+  row-gap: 20px;
 }
 
 .row {
   display: grid;
-  grid-template-columns: 220px 1fr;
+  grid-template-columns: 172px 1fr;
   align-items: center;
 }
 
 .label {
   color: $color-text-secondary;
+  font-size: 13px;
 }
 
 .value {

@@ -1,32 +1,53 @@
 @use '@/styles/variables.scss' as *;
 
 .page {
-  padding: 24px;
+  padding: 36px 0px;
+  width: 640px;
 }
 
 .header {
   display: grid;
-  grid-template-columns: 32px 1fr auto;
+  grid-template-columns: 1fr auto;
   align-items: center;
   gap: 12px;
-  margin-bottom: 20px;
+  margin-bottom: 34px;
+  position: relative;
 }
 
 .backButton {
   font-size: 18px;
+  position: absolute;
+  left: -59px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  svg {
+    width: 25px;
+    height: 25px;
+  }
 }
 
 .title {
   margin: 0;
   font-family: $font-family-base;
   font-size: 28px;
-  font-weight: 700;
+  font-weight: 500;
   color: $color-text-primary;
+  letter-spacing: 0.25px;
 }
 
 .headerActions {
   display: inline-flex;
-  gap: 8px;
+  gap: 5px;
+}
+
+.deleteIconButton.deleteIconButton {
+  color: $color-delete-button !important;
+
+  svg,
+  svg * {
+    stroke: $color-delete-button !important;
+  }
 }
 
 .notFoundDescription {

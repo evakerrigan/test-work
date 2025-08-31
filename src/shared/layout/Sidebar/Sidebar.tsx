@@ -75,6 +75,10 @@ export const Sidebar = () => {
             })}
           </ul>
         </nav>
+
+        <div className={styles.sidebar__footer}>
+          All Funeral Services © 2015-2025
+        </div>
       </div>
     </aside>
   );

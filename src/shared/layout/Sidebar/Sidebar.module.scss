@@ -18,7 +18,7 @@
   }
 
   &__header {
-    padding: $spacing-xl $spacing-lg;
+    padding: 21px 0px;
     border-bottom: 1px solid $color-border;
   }
 
@@ -40,13 +40,21 @@
   }
 
   &__title-sub {
-    font-size: $font-size;
+    font-size: $font-size-mini;
     color: $color-text-secondary;
     font-weight: $font-weight-normal;
   }
 
   &__nav {
     flex: 1;
+    padding-top: $spacing-lg;
+  }
+
+  &__footer {
+    margin-top: auto;
+    font-size: 11px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.3);
     padding-top: $spacing-lg;
   }
 
@@ -57,7 +65,7 @@
   }
 
   &__item {
-    margin-bottom: $spacing-xs;
+    margin-bottom: 9px;
   }
 
   &__link {

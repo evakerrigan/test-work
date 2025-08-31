@@ -4,9 +4,9 @@
   background: $color-card-bg;
   border-radius: 12px;
   border: 1px solid $color-border;
-  padding: 24px;
+  padding: 25px 24px 33px 24px;
   box-shadow: $box-shadow;
-  margin-bottom: 16px;
+  margin-bottom: 17px;
 }
 
 .sectionHeader {
@@ -18,27 +18,28 @@
 
 .sectionTitle {
   margin: 0;
-  font-size: 18px;
+  font-size: $font-size-base;
   font-weight: 600;
 }
 
 .photosGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-left: 8px;
 }
 
 .photoItem {
   position: relative;
-  border-radius: 10px;
   overflow: hidden;
 }
 
 .photoImg {
-  width: 100%;
-  height: 156px;
+  width: 144px;
+  height: 108px;
   object-fit: cover;
   display: block;
+  border-radius: 10px;
 }
 
 .photoPlaceholder {
@@ -55,9 +56,9 @@
   position: absolute;
   right: 10px;
   top: 10px;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
+  width: 27px;
+  height: 27px;
+  border-radius: 8px;
   background: rgba(0, 0, 0, 0.6);
   display: inline-flex;
   align-items: center;

@@ -64,7 +64,7 @@ export const Contacts: React.FC<ContactsProps> = observer((props) => {
           </div>
         ) : (
           <Button
-            variant="secondary"
+            variant="flattened"
             leftIcon={<EditIcon />}
             onClick={() => setIsEdit(true)}
           >

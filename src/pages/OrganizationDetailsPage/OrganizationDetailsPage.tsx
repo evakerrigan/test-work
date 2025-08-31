@@ -5,6 +5,7 @@ import { Input } from '@/shared/ui/Input';
 import { Modal } from '@/shared/ui/Modal';
 import EditIcon from '@/assets/icons/Edit.svg?react';
 import TrashIcon from '@/assets/icons/Trash.svg?react';
+import LeftIcon from '@/assets/icons/Left.svg?react';
 import styles from './OrganizationDetailsPage.module.scss';
 import { Company, Contacts, Photos } from './components';
 import { observer } from 'mobx-react-lite';
@@ -58,8 +59,9 @@ export const OrganizationDetailsPage = observer(() => {
           <Button
             variant="flattened"
             onClick={() => navigate('/organizations')}
+            aria-label="Назад"
           >
-            ←
+            <LeftIcon />
           </Button>
           <h1 className={styles.title}>Organization not found</h1>
         </div>
@@ -73,13 +75,13 @@ export const OrganizationDetailsPage = observer(() => {
   return (
     <div className={styles.page}>
       <div className={styles.header}>
-        <Button
-          variant="flattened"
+        <button
           onClick={() => navigate('/organizations')}
           className={styles.backButton}
+          aria-label="Назад"
         >
-          ←
-        </Button>
+          <LeftIcon />
+        </button>
         <h1 className={styles.title}>{organization.title}</h1>
         <div className={styles.headerActions}>
           <Button
@@ -98,6 +100,7 @@ export const OrganizationDetailsPage = observer(() => {
             aria-label="Delete organization"
             leftIcon={<TrashIcon />}
             onClick={() => setIsDeleteOpen(true)}
+            className={styles.deleteIconButton}
           >
             {''}
           </Button>

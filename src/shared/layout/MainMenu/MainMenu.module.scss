@@ -7,19 +7,19 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: $spacing-lg 0;
+  padding: 36px 0 14px 0;
   flex-shrink: 0;
 
   &__top {
     display: flex;
     flex-direction: column;
-    gap: $spacing-sm;
+    gap: 23px;
     align-items: center;
   }
 
   &__logo {
-    width: 32px;
-    height: 32px;
+    width: 35px;
+    height: 35px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -34,8 +34,8 @@
     }
 
     svg {
-      width: 18px;
-      height: 18px;
+      width: 35px;
+      height: 35px;
     }
   }
 
@@ -51,7 +51,7 @@
   &__bottom {
     display: flex;
     flex-direction: column;
-    gap: $spacing-sm;
+    gap: 22px;
     align-items: center;
   }
 
@@ -87,5 +87,22 @@
       width: 18px;
       height: 18px;
     }
+  }
+
+  // Divider line above the Settings button (first item in bottom block)
+  &__bottom .mainMenu__item:first-child {
+    position: relative;
+  }
+
+  &__bottom .mainMenu__item:first-child::before {
+    content: '';
+    position: absolute;
+    top: -23px;
+    left: 50%;
+    width: 19px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateX(-50%);
+    pointer-events: none;
   }
 }

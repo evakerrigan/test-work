@@ -23,7 +23,6 @@
   &__icon-right {
     display: inline-flex;
 
-    // Иконки наследуют текущий цвет текста кнопки
     svg {
       stroke: currentColor !important;
     }
@@ -34,7 +33,7 @@
   }
 
   &__icon-left {
-    margin-right: 8px;
+    margin-right: 14px;
   }
 
   &__icon-right {
@@ -77,34 +76,53 @@
   border-color: $color-button-outline-primary-active-border !important;
 }
 
-// Flattened button: прозрачный фон, без рамки, с фиолетовыми состояниями
 .button--flattened {
   background-color: transparent !important;
   color: $color-button-outline-primary-text !important;
-  border: none !important;
-  padding: 6px 10px;
+  padding: 5px 12px 4px 6px;
+  border: 1px solid $color-button-outline-primary-border !important;
+  min-height: auto;
+  font-size: 11px;
+
+  .button__icon-left,
+  .button__icon-right {
+    svg {
+      width: 15px;
+      height: 15px;
+    }
+  }
 
   &:hover:not(:disabled) {
     color: $color-button-outline-primary-hover-text !important;
     background-color: transparent !important;
+    border-color: $color-button-outline-primary-hover-border !important;
   }
 
   &:active:not(:disabled) {
     color: $color-button-outline-primary-active-text !important;
     background-color: transparent !important;
+    border-color: $color-button-outline-primary-active-border !important;
   }
 }
 
-// Icon button: круглую кнопку под иконку
 .button--icon {
-  background-color: $color-button-icon-bg !important;
-  color: $color-button-filled-primary-bg !important; // иконка темная
+  color: $color-button-filled-primary-bg !important;
   border: none !important;
   width: 32px;
   height: 32px;
   min-height: 32px;
   border-radius: 50%;
   padding: 0;
+  margin-right: 0;
+
+  .button__icon-left,
+  .button__icon-right {
+    margin: 0;
+  }
+
+  .button__label {
+    display: none;
+  }
 
   &:hover:not(:disabled) {
     background-color: $color-button-icon-hover-bg !important;
