@@ -1,5 +1,31 @@
 ## Tестовое задание в компанию All Funeral
 
+<img src="src/assets/images/app.png" width="700" alt="Скриншот приложения">
+
+Deploy: https://test-allfuneral-chi.vercel.app/organizations/12
+
+### Архитектура
+
+Для проекта выбрана модульная архитектура bulletproof-react.
+
+https://github.com/alan2207/bulletproof-react ⭐️ 32000 звезд
+
+### Кроме того что в задании, что сделано еще:
+
+1. Error Boundary
+2. Сделан роутинг по страницам
+3. Добавлены страницы:
+
+- search
+- settings
+- organization list
+
+4. Настроены eslint, prettier, husky
+
+5. Добавлена favicon
+
+### О вакансии
+
 Вакансия: https://hh.ru/vacancy/124331882?from=share_android
 
 Компания: https://tending.app
@@ -25,22 +51,3 @@ npm install
 ```bash
 npm run dev
 ```
-
-### Архитектура
-
-Для проекты выбрана модульная архитектура bulletproof-react.
-
-https://github.com/alan2207/bulletproof-react ⭐️ 32000 звезд
-
-### Что сделано:
-
-1. Error Boundary
-2. Сделан роутинг по страницам
-3. Добавлены страницы:
-
-- search
-- settings
-
-4. Настроены eslint, prettier, husky
-
-5. Добавлена favicon
