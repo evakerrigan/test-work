@@ -11,10 +11,10 @@
   }
 
   &__title {
-    font-size: 2.5rem;
-    font-weight: $font-weight-bold;
-    color: $color-button-filled-primary-bg;
-    margin-bottom: 0.5rem;
+    font-size: 24px;
+    font-weight: 600;
+    color: $color-text-secondary;
+    margin: 0 0 16px 0;
   }
 
   &__subtitle {
@@ -55,11 +55,11 @@
   }
 
   &__searchButton {
-    border-radius: 12px !important;
-    padding: $spacing-md $spacing-lg !important;
+    border-radius: 8px !important;
 
     svg {
-      fill: currentColor;
+      width: 18px;
+      height: 18px;
     }
   }
 
@@ -68,29 +68,5 @@
     justify-content: center;
     gap: $spacing-md;
     flex-wrap: wrap;
-  }
-}
-
-// Адаптивность для мобильных устройств
-@media (max-width: $breakpoint-md) {
-  .searchPage {
-    padding: $spacing-md;
-
-    &__title {
-      font-size: 2rem;
-    }
-
-    &__searchInput {
-      flex-direction: column;
-    }
-
-    &__filters {
-      gap: $spacing-sm;
-    }
-
-    &__filterButton {
-      padding: $spacing-sm $spacing-md !important;
-      font-size: 0.9rem;
-    }
   }
 }

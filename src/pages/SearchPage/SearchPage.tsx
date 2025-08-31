@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styles from './SearchPage.module.scss';
 import { SearchIcon } from '@/shared/ui/Icons';
 import { Button } from '@/shared/ui/Button';
+import { Input } from '@/shared/ui/Input';
 
 type SearchType = 'all' | 'organizations' | 'contractors' | 'clients';
 
@@ -33,15 +34,14 @@ export const SearchPage = () => {
 
       <div className={styles.searchPage__searchSection}>
         <div className={styles.searchPage__searchInput}>
-          <input
+          <Input
             type="text"
             placeholder="Enter search query..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className={styles.searchPage__input}
           />
           <Button variant="primary" className={styles.searchPage__searchButton}>
-            <SearchIcon size={20} />
+            <SearchIcon size={18} />
           </Button>
         </div>
 
