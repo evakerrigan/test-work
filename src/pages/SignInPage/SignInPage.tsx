@@ -15,7 +15,7 @@ export const SignInPage = () => {
     <div className={styles.signIn}>
       <div className={styles.signIn__container}>
         <div className={styles.signIn__logo}>
-          <LogoTreeIcon size={64} />
+          <LogoTreeIcon size={64} className={styles.signIn__icon} />
         </div>
 
         <h1 className={styles.signIn__title}>Sign In</h1>

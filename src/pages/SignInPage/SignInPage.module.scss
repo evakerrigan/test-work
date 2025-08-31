@@ -18,26 +18,27 @@
   }
 
   &__logo {
-    margin-bottom: $spacing-lg;
+    margin-bottom: 24px;
+    opacity: 0.7;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__icon {
+    display: block;
+    fill: $color-text-secondary !important;
     color: $color-text-secondary;
 
-    svg {
-      width: 64px;
-      height: 64px;
-    }
-
-    svg,
-    svg * {
-      fill: currentColor !important;
-      stroke: currentColor !important;
+    path {
+      fill: $color-text-secondary !important;
     }
   }
 
   &__title {
-    font-size: 16px;
-    font-weight: $font-weight-normal;
-    color: $color-text-primary;
-    margin-bottom: $spacing-xl;
+    font-size: 24px;
+    font-weight: 600;
+    color: $color-text-secondary;
+    margin: 0 0 16px 0;
   }
 
   &__form {
