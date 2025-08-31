@@ -1,0 +1,82 @@
+@use '@/styles/variables.scss' as *;
+
+.sectionCard {
+  background: $color-card-bg;
+  border-radius: 12px;
+  border: 1px solid $color-border;
+  padding: 24px;
+  box-shadow: $box-shadow;
+  margin-bottom: 16px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.sectionTitle {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.photosGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.photoItem {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.photoImg {
+  width: 100%;
+  height: 156px;
+  object-fit: cover;
+  display: block;
+}
+
+.photoPlaceholder {
+  width: 100%;
+  height: 156px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f0f0;
+  color: $color-text-secondary;
+}
+
+.photoDelete {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    fill: none !important;
+    stroke: currentColor !important;
+    stroke-width: 1.2 !important;
+  }
+
+  svg * {
+    fill: none !important;
+    stroke: currentColor !important;
+    stroke-width: 1.2 !important;
+  }
+}

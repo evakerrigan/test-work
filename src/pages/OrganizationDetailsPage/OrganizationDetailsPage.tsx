@@ -1,5 +1,10 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useOrganizations } from '@/shared/hooks';
+import { Button } from '@/shared/ui/Button';
+import EditIcon from '@/assets/icons/Edit.svg?react';
+import TrashIcon from '@/assets/icons/Trash.svg?react';
+import styles from './OrganizationDetailsPage.module.scss';
+import { Company, Contacts, Photos } from './components';
 
 export const OrganizationDetailsPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -10,87 +15,68 @@ export const OrganizationDetailsPage = () => {
 
   if (!organization) {
     return (
-      <div>
-        <h1>Organization not found</h1>
-        <p>Organization with ID {id} does not exist.</p>
-        <button onClick={() => navigate('/organizations')}>Back to list</button>
+      <div className={styles.page}>
+        <div className={styles.header}>
+          <Button
+            variant="flattened"
+            onClick={() => navigate('/organizations')}
+          >
+            ←
+          </Button>
+          <h1 className={styles.title}>Organization not found</h1>
+        </div>
+        <p className={styles.notFoundDescription}>
+          Organization with ID {id} does not exist.
+        </p>
       </div>
     );
   }
 
   return (
-    <div>
-      <button onClick={() => navigate('/organizations')}>← Back to list</button>
-
-      <div>
-        <h1>{organization.title}</h1>
-
-        <div>
-          <div>
-            <h3>Agreement Number</h3>
-            <p>{organization.agreementNumber}</p>
-          </div>
-
-          <div>
-            <h3>Agreement Date</h3>
-            <p>{organization.agreementDay}</p>
-          </div>
-
-          <div>
-            <h3>Business Entity</h3>
-            <p>{organization.businessEntity}</p>
-          </div>
-
-          <div>
-            <h3>Company Type</h3>
-            <p>{organization.companyType}</p>
-          </div>
-
-          <div>
-            <h3>Responsible Person</h3>
-            <p>{organization.responsiblePerson}</p>
-          </div>
-
-          <div>
-            <h3>Phone</h3>
-            <p>{organization.phone}</p>
-          </div>
-
-          <div>
-            <h3>Email</h3>
-            <p>{organization.email}</p>
-          </div>
+    <div className={styles.page}>
+      <div className={styles.header}>
+        <Button
+          variant="flattened"
+          onClick={() => navigate('/organizations')}
+          className={styles.backButton}
+        >
+          ←
+        </Button>
+        <h1 className={styles.title}>{organization.title}</h1>
+        <div className={styles.headerActions}>
+          <Button
+            variant="icon"
+            aria-label="Edit organization"
+            leftIcon={<EditIcon />}
+          >
+            {''}
+          </Button>
+          <Button
+            variant="icon"
+            aria-label="Delete organization"
+            leftIcon={<TrashIcon />}
+          >
+            {''}
+          </Button>
         </div>
-
-        {organization.photos && organization.photos.length > 0 && (
-          <div>
-            <h3>Photos</h3>
-            <div>
-              {organization.photos.map((photo, index) => {
-                const isLocalImage = photo.startsWith('/src/assets/');
-
-                if (isLocalImage) {
-                  return (
-                    <img
-                      key={index}
-                      src={photo}
-                      alt={`${organization.title} - Photo ${index + 1}`}
-                    />
-                  );
-                }
-
-                return (
-                  <div key={index}>
-                    Photo {index + 1}
-                    <br />
-                    <span>{photo.split('/').pop()}</span>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        )}
       </div>
+
+      <Company
+        agreementNumber={organization.agreementNumber}
+        agreementDay={organization.agreementDay}
+        businessEntity={organization.businessEntity}
+        companyType={organization.companyType}
+      />
+
+      <Contacts
+        responsiblePerson={organization.responsiblePerson}
+        phone={organization.phone}
+        email={organization.email}
+      />
+
+      {organization.photos && organization.photos.length > 0 && (
+        <Photos title={organization.title} photos={organization.photos} />
+      )}
     </div>
   );
 };

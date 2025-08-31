@@ -1,0 +1,52 @@
+@use '@/styles/variables.scss' as *;
+
+.sectionCard {
+  background: $color-card-bg;
+  border-radius: 12px;
+  border: 1px solid $color-border;
+  padding: 24px;
+  box-shadow: $box-shadow;
+  margin-bottom: 16px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.sectionTitle {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.detailsGrid {
+  display: grid;
+  row-gap: 14px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  align-items: center;
+}
+
+.label {
+  color: $color-text-secondary;
+}
+
+.value {
+  color: $color-text-primary;
+}
+
+.separator {
+  display: inline-block;
+  margin: 0 8px;
+  color: $color-text-secondary;
+}
+
+.agreementDate {
+  color: $color-text-primary;
+}
