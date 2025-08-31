@@ -1,0 +1,59 @@
+@use '@/styles/variables.scss' as *;
+
+.organizationsPage {
+  padding: $spacing-xl;
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+
+  &__title {
+    margin: 0 0 $spacing-lg 0;
+    font-family: $font-family-base;
+    font-size: 24px;
+    font-weight: 600;
+    color: $color-text-secondary;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
+
+    @media (min-width: $breakpoint-md) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+.orgCard {
+  background: $color-card-bg;
+  border: 1px solid $color-border;
+  border-radius: $card-border-radius;
+  padding: $spacing-lg;
+  cursor: pointer;
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.15s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+
+  &:hover {
+    box-shadow: $box-shadow-lg;
+    transform: translateY(-1px);
+    border-color: rgba(0, 0, 0, 0.08);
+    background-color: #fff;
+  }
+
+  &__title {
+    margin: 0 0 6px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: $color-text-primary;
+  }
+
+  &__meta {
+    margin: 0;
+    color: $color-text-secondary;
+    font-size: 13px;
+  }
+}
