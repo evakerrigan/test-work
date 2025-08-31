@@ -92,6 +92,10 @@
       background-color: $color-select-option-hover-bg;
     }
 
+    &--active {
+      background-color: $color-select-option-hover-bg;
+    }
+
     &--selected {
       background-color: $color-select-option-selected-bg;
       font-weight: $font-weight-semibold;

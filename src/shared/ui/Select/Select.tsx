@@ -19,9 +19,9 @@ type SelectProps = {
   ) => void;
 };
 
-type LabelAttrs = Omit<React.HTMLAttributes<HTMLLabelElement>, 'onChange'>;
+type DivAttrs = Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>;
 
-export const Select: React.FC<SelectProps & LabelAttrs> = (props) => {
+export const Select: React.FC<SelectProps & DivAttrs> = (props) => {
   const {
     className = '',
     options = [],
@@ -35,7 +35,8 @@ export const Select: React.FC<SelectProps & LabelAttrs> = (props) => {
 
   const isMulti = variant === 'company';
   const [open, setOpen] = useState(false);
-  const containerRef = useRef<HTMLLabelElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const [activeIndex, setActiveIndex] = useState<number>(-1);
 
   const selectedValues = useMemo<Array<string | number>>(() => {
     if (Array.isArray(value)) return value as Array<string | number>;
@@ -64,7 +65,13 @@ export const Select: React.FC<SelectProps & LabelAttrs> = (props) => {
 
   const toggleOpen = () => {
     if (disabled) return;
-    setOpen((s) => !s);
+    setOpen((s) => {
+      const next = !s;
+      if (next) {
+        setActiveIndex((prev) => (prev >= 0 ? prev : 0));
+      }
+      return next;
+    });
   };
 
   const emitChange = (newValues: Array<string | number>) => {
@@ -92,6 +99,51 @@ export const Select: React.FC<SelectProps & LabelAttrs> = (props) => {
     }
   };
 
+  const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (disabled) return;
+    const key = e.key;
+    const total = options.length;
+    if (!open) {
+      if (
+        key === 'Enter' ||
+        key === ' ' ||
+        key === 'ArrowDown' ||
+        key === 'ArrowUp'
+      ) {
+        e.preventDefault();
+        setOpen(true);
+        setActiveIndex((prev) => {
+          if (prev >= 0 && prev < total) return prev;
+          return key === 'ArrowUp' ? Math.max(total - 1, 0) : 0;
+        });
+      }
+      return;
+    }
+
+    if (key === 'Escape') {
+      e.preventDefault();
+      setOpen(false);
+      return;
+    }
+    if (key === 'ArrowDown') {
+      e.preventDefault();
+      setActiveIndex((idx) => (total ? (idx + 1 + total) % total : -1));
+      return;
+    }
+    if (key === 'ArrowUp') {
+      e.preventDefault();
+      setActiveIndex((idx) => (total ? (idx - 1 + total) % total : -1));
+      return;
+    }
+    if (key === 'Enter' || key === ' ') {
+      e.preventDefault();
+      const idx = activeIndex;
+      if (idx >= 0 && idx < total) {
+        onOptionClick(options[idx].value);
+      }
+    }
+  };
+
   const containerClassName = [
     styles.select,
     disabled ? styles['select--disabled'] : '',
@@ -103,10 +155,11 @@ export const Select: React.FC<SelectProps & LabelAttrs> = (props) => {
     .trim();
 
   return (
-    <label
+    <div
       ref={containerRef}
       className={containerClassName}
       aria-disabled={disabled}
+      onKeyDown={onKeyDown}
       {...rest}
     >
       <div
@@ -144,7 +197,7 @@ export const Select: React.FC<SelectProps & LabelAttrs> = (props) => {
           role="listbox"
           aria-multiselectable={isMulti}
         >
-          {options.map((opt) => {
+          {options.map((opt, index) => {
             const isSelected = selectedValues
               .map(String)
               .includes(String(opt.value));
@@ -156,21 +209,25 @@ export const Select: React.FC<SelectProps & LabelAttrs> = (props) => {
                 className={[
                   styles['select__option'],
                   isSelected ? styles['select__option--selected'] : '',
+                  index === activeIndex ? styles['select__option--active'] : '',
                 ]
                   .join(' ')
                   .trim()}
+                onMouseDown={(e) => e.preventDefault()}
+                onMouseEnter={() => setActiveIndex(index)}
                 onClick={() => onOptionClick(opt.value)}
               >
                 {isMulti ? (
-                  <label className={styles['select__optionContent']}>
+                  <div className={styles['select__optionContent']}>
                     <input
                       type="checkbox"
                       checked={isSelected}
                       readOnly
+                      tabIndex={-1}
                       className={styles['select__checkbox']}
                     />
                     <span>{opt.label}</span>
-                  </label>
+                  </div>
                 ) : (
                   <span>{opt.label}</span>
                 )}
@@ -179,6 +236,6 @@ export const Select: React.FC<SelectProps & LabelAttrs> = (props) => {
           })}
         </ul>
       ) : null}
-    </label>
+    </div>
   );
 };
