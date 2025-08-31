@@ -41,4 +41,6 @@ https://github.com/alan2207/bulletproof-react ⭐️ 32000 звезд
 - search
 - settings
 
-4. Добавлена фавиконка
+4. Настроены eslint, prettier, husky
+
+5. Добавлена favicon
