@@ -18,10 +18,22 @@ export const Photos: React.FC<PhotosProps> = ({ title, photos }) => {
   const onFileChange: React.ChangeEventHandler<HTMLInputElement> = async (
     e
   ) => {
-    const file = e.target.files?.[0];
-    if (!file || !companyStore.company) return;
-    await companyStore.uploadPhoto(companyStore.company.id, file);
-    e.currentTarget.value = '';
+    const inputElement = e.currentTarget;
+    const file = inputElement.files?.[0];
+    if (!companyStore.company) {
+      if (inputRef.current) inputRef.current.value = '';
+      return;
+    }
+
+    try {
+      if (!file) {
+        if (inputRef.current) inputRef.current.value = '';
+        return;
+      }
+      await companyStore.uploadPhoto(companyStore.company.id, file);
+    } finally {
+      if (inputRef.current) inputRef.current.value = '';
+    }
   };
 
   const onDelete = async (imageName: string) => {
