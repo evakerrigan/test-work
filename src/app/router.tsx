@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
 import {
   OrganizationsListPage,
   OrganizationDetailsPage,
@@ -10,6 +10,17 @@ import {
 } from '@/pages';
 import { AppLayout } from '@/shared/layout';
 import { NotFoundPage } from '@/pages/NotFoundPage';
+import { observer } from 'mobx-react-lite';
+import { authStore } from '@/features/authentication';
+
+const RequireAuth = observer(
+  ({ children }: { children: React.ReactElement }) => {
+    if (!authStore.isAuthenticated) {
+      return <Navigate to="/sign-in" replace />;
+    }
+    return children;
+  }
+);
 
 export const router = createBrowserRouter([
   {
@@ -18,7 +29,11 @@ export const router = createBrowserRouter([
   },
   {
     path: '/',
-    element: <AppLayout />,
+    element: (
+      <RequireAuth>
+        <AppLayout />
+      </RequireAuth>
+    ),
     children: [
       {
         index: true,

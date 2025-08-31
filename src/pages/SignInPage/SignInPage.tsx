@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
 import { LogoTreeIcon, Button, Input } from '@/shared/ui';
 import styles from './SignInPage.module.scss';
+import { authStore } from '@/features/authentication';
+import { useNavigate } from 'react-router-dom';
+import { observer } from 'mobx-react-lite';
 
-export const SignInPage = () => {
+export const SignInPage = observer(() => {
   const [name, setName] = useState('');
+  const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: sign in logic
-    console.log('Sign in attempt with name:', name);
+    try {
+      await authStore.signIn(name);
+      navigate('/');
+    } catch {
+      // noop: error will be reflected from store if needed
+    }
   };
 
   return (
@@ -31,9 +39,11 @@ export const SignInPage = () => {
             />
           </div>
 
-          <Button type="submit">Sign In</Button>
+          <Button type="submit" disabled={authStore.isLoading}>
+            {authStore.isLoading ? 'Signing In...' : 'Sign In'}
+          </Button>
         </form>
       </div>
     </div>
   );
-};
+});

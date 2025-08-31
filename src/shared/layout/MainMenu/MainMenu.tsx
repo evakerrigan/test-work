@@ -8,6 +8,7 @@ import {
   SettingsIcon,
   SignOutIcon,
 } from '@/shared/ui';
+import { authStore } from '@/features/authentication';
 
 interface MainMenuItem {
   id: string;
@@ -58,6 +59,7 @@ export const MainMenu = () => {
         navigate('/settings');
         break;
       case 'logout':
+        authStore.signOut();
         navigate('/sign-in');
         break;
       default:
