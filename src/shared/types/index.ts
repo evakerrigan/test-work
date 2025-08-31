@@ -10,3 +10,8 @@ export interface Organization {
   email: string;
   photos: string[];
 }
+
+export type CompanyTypeCode =
+  | 'funeral_home'
+  | 'logistics_services'
+  | 'burial_care_contractor';

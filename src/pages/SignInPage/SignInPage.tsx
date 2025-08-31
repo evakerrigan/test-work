@@ -15,7 +15,7 @@ export const SignInPage = observer(() => {
       await authStore.signIn(name);
       navigate('/');
     } catch {
-      // noop: error will be reflected from store if needed
+      // TODO: add error
     }
   };
 

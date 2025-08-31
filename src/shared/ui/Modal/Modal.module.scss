@@ -1,0 +1,41 @@
+@use '@/styles/variables.scss' as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #fff;
+  border-radius: $border-radius-lg;
+  box-shadow: $box-shadow-lg;
+  width: min(480px, 92vw);
+}
+
+.content {
+  padding: $spacing-lg;
+}
+
+.title {
+  font-weight: $font-weight-bold;
+  font-size: 18px;
+  text-align: center;
+  margin: 0 0 $spacing-md 0;
+}
+
+.body {
+  text-align: center;
+  color: $color-text-secondary;
+}
+
+.footer {
+  display: flex;
+  gap: $spacing-sm;
+  justify-content: center;
+  padding: 0 $spacing-lg $spacing-lg $spacing-lg;
+}

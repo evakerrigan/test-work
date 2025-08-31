@@ -1,36 +1,65 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Button } from '@/shared/ui/Button';
 import AddIcon from '@/assets/icons/Add.svg?react';
 import TrashIcon from '@/assets/icons/Trash.svg?react';
 import styles from './Photos.module.scss';
+import { companyStore } from '@/features/companies';
+import type { CompanyPhotoDto } from '@/features/companies';
 
-type PhotosProps = {
-  title: string;
-  photos: string[];
-};
+type PhotosProps = { title: string; photos: CompanyPhotoDto[] };
 
 export const Photos: React.FC<PhotosProps> = ({ title, photos }) => {
-  if (!photos || photos.length === 0) {
-    return null;
-  }
+  const inputRef = useRef<HTMLInputElement | null>(null);
+
+  const onAddClick = () => {
+    inputRef.current?.click();
+  };
+
+  const onFileChange: React.ChangeEventHandler<HTMLInputElement> = async (
+    e
+  ) => {
+    const file = e.target.files?.[0];
+    if (!file || !companyStore.company) return;
+    await companyStore.uploadPhoto(companyStore.company.id, file);
+    e.currentTarget.value = '';
+  };
+
+  const onDelete = async (imageName: string) => {
+    if (!companyStore.company) return;
+    await companyStore.deletePhoto(companyStore.company.id, imageName);
+  };
 
   return (
     <section className={styles.sectionCard}>
       <div className={styles.sectionHeader}>
         <h2 className={styles.sectionTitle}>Photos</h2>
-        <Button variant="secondary" leftIcon={<AddIcon />}>
-          Add
-        </Button>
+        <>
+          <input
+            ref={inputRef}
+            type="file"
+            accept="image/*"
+            style={{ display: 'none' }}
+            onChange={onFileChange}
+          />
+          <Button
+            variant="secondary"
+            leftIcon={<AddIcon />}
+            onClick={onAddClick}
+          >
+            Add
+          </Button>
+        </>
       </div>
       <div className={styles.photosGrid}>
-        {photos.map((photo, index) => {
-          const isLocalImage = photo.startsWith('/src/assets/');
+        {photos.map((p, index) => {
+          const src = p.thumbpath || p.filepath;
+          const imageName = p.name;
 
           return (
             <div className={styles.photoItem} key={index}>
-              {isLocalImage ? (
+              {src ? (
                 <img
-                  src={photo}
+                  src={src}
                   alt={`${title} - Photo ${index + 1}`}
                   className={styles.photoImg}
                 />
@@ -40,6 +69,7 @@ export const Photos: React.FC<PhotosProps> = ({ title, photos }) => {
               <button
                 className={styles.photoDelete}
                 aria-label={`Delete photo ${index + 1}`}
+                onClick={() => imageName && onDelete(imageName)}
               >
                 <TrashIcon />
               </button>
