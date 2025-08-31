@@ -1,4 +1,4 @@
-import { LogoTreeIcon } from '@/shared/ui';
+import { LogoTreeIcon, Button } from '@/shared/ui';
 import styles from './NotFoundPage.module.scss';
 
 export const NotFoundPage = () => {
@@ -15,9 +15,9 @@ export const NotFoundPage = () => {
           Sorry, the page you are looking for does not exist or has been moved.
         </p>
 
-        <a href="/" className={styles.notFound__link}>
+        <Button as="a" href="/" className={styles.notFound__link}>
           Back to Home
-        </a>
+        </Button>
       </div>
     </div>
   );
