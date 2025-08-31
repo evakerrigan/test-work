@@ -76,3 +76,14 @@ $breakpoint-sm: 576px;
 $breakpoint-md: 768px;
 $breakpoint-lg: 992px;
 $breakpoint-xl: 1200px;
+
+// Поля ввода (Input/Select)
+$color-input-bg: #ffffff;
+$color-input-text: $color-text-primary;
+$color-input-placeholder: rgba(0, 0, 0, 0.8);
+$color-input-border: rgba(0, 0, 0, 0.2);
+$color-input-hover-border: rgba(0, 0, 0, 0.5);
+$color-input-focus-border: rgba(53, 205, 253, 1);
+$input-border-radius: $border-radius-lg;
+$input-padding-x: 12px;
+$input-padding-right-with-icon: 40px;
