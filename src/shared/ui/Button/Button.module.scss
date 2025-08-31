@@ -25,12 +25,10 @@
 
     // Иконки наследуют текущий цвет текста кнопки
     svg {
-      fill: currentColor !important;
       stroke: currentColor !important;
     }
 
     svg * {
-      fill: currentColor !important;
       stroke: currentColor !important;
     }
   }
@@ -117,7 +115,17 @@
   }
 
   svg {
-    fill: currentColor;
+    width: 18px;
+    height: 18px;
+    fill: none !important;
+    stroke: currentColor !important;
+    stroke-width: 1.2 !important;
+  }
+
+  svg * {
+    fill: none !important;
+    stroke: currentColor !important;
+    stroke-width: 1.2 !important;
   }
 }
 
