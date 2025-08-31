@@ -19,20 +19,25 @@
 
   &__logo {
     margin-bottom: $spacing-lg;
-    color: #667eea;
+    color: $color-text-secondary;
 
     svg {
       width: 64px;
       height: 64px;
     }
+
+    svg,
+    svg * {
+      fill: currentColor !important;
+      stroke: currentColor !important;
+    }
   }
 
   &__title {
-    font-size: $font-size;
-    font-weight: $font-weight-bold;
+    font-size: 16px;
+    font-weight: $font-weight-normal;
     color: $color-text-primary;
     margin-bottom: $spacing-xl;
-    letter-spacing: -0.025em;
   }
 
   &__form {
@@ -43,55 +48,5 @@
 
   &__field {
     position: relative;
-  }
-
-  &__input {
-    width: 100%;
-    padding: $spacing-md;
-    border: 2px solid #e9ecef;
-    border-radius: $border-radius;
-    font-size: $font-size-base;
-    font-family: $font-family-base;
-    transition: all 0.2s ease;
-    box-sizing: border-box;
-
-    &:focus {
-      outline: none;
-      border-color: #667eea;
-      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-    }
-
-    &::placeholder {
-      color: $color-text-secondary;
-    }
-  }
-
-  &__button {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    border: none;
-    border-radius: $border-radius;
-    padding: $spacing-md $spacing-lg;
-    font-size: $font-size-base;
-    font-weight: $font-weight-bold;
-    font-family: $font-family-base;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
-
-    &:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-    }
-
-    &:active {
-      transform: translateY(0);
-    }
-
-    &:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-      transform: none;
-    }
   }
 }

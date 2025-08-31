@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { LogoTreeIcon, Button } from '@/shared/ui';
+import { LogoTreeIcon, Button, Input } from '@/shared/ui';
 import styles from './SignInPage.module.scss';
 
 export const SignInPage = () => {
@@ -22,12 +22,11 @@ export const SignInPage = () => {
 
         <form onSubmit={handleSubmit} className={styles.signIn__form}>
           <div className={styles.signIn__field}>
-            <input
+            <Input
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Enter your name"
-              className={styles.signIn__input}
               required
             />
           </div>
