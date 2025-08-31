@@ -2,7 +2,7 @@ import { type Organization } from '@/shared/types';
 
 const mockOrganizations: Organization[] = [
   {
-    id: 1,
+    id: 12,
     title: 'Eternal Rest Funeral Home',
     agreementNumber: '1624/2-24',
     agreementDay: '03.12.2024',
