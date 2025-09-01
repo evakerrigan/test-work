@@ -14,18 +14,18 @@
   background: #fff;
   border-radius: $border-radius-lg;
   box-shadow: $box-shadow-lg;
-  width: min(480px, 92vw);
+  width: min(360px, 92vw);
 }
 
 .content {
-  padding: $spacing-lg;
+  padding: 30px 24px 24px 24px;
 }
 
 .title {
   font-weight: $font-weight-bold;
-  font-size: 18px;
+  font-size: $font-size-base;
   text-align: center;
-  margin: 0 0 $spacing-md 0;
+  margin: 0 0 27px 0;
 }
 
 .body {
@@ -34,8 +34,12 @@
 }
 
 .footer {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: $spacing-sm;
-  justify-content: center;
   padding: 0 $spacing-lg $spacing-lg $spacing-lg;
+}
+
+.footer > * {
+  width: 100%;
 }

@@ -27,6 +27,13 @@
   row-gap: 20px;
 }
 
+.detailsGridEdit {
+  grid-auto-rows: auto;
+  row-gap: 12px;
+  margin-top: -9px;
+  margin-bottom: -11px;
+}
+
 .row {
   display: grid;
   grid-template-columns: 172px 1fr;
@@ -40,4 +47,18 @@
 
 .value {
   color: $color-text-primary;
+}
+
+.separator {
+  display: inline-block;
+  margin: 0 8px;
+  color: $color-text-secondary;
+}
+
+.agreementDate {
+  color: $color-text-primary;
+}
+
+.cancelBtn {
+  margin-left: 17px;
 }

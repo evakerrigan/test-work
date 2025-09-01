@@ -3,6 +3,8 @@ import { Button } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input';
 import { Select } from '@/shared/ui/Select';
 import EditIcon from '@/assets/icons/Edit.svg?react';
+import CheckIcon from '@/assets/icons/Check.svg?react';
+import XIcon from '@/assets/icons/X.svg?react';
 import styles from './Company.module.scss';
 import { companyStore, type CompanyTypeCode } from '@/features/companies';
 import { observer } from 'mobx-react-lite';
@@ -79,7 +81,8 @@ export const Company: React.FC<CompanyProps> = observer((props) => {
         {isEdit ? (
           <div>
             <Button
-              variant="secondary"
+              variant="flattened"
+              leftIcon={<CheckIcon />}
               onClick={onSave}
               disabled={companyStore.isSaving}
             >
@@ -87,6 +90,7 @@ export const Company: React.FC<CompanyProps> = observer((props) => {
             </Button>
             <Button
               variant="flattened"
+              leftIcon={<XIcon />}
               onClick={() => setIsEdit(false)}
               className={styles.cancelBtn}
             >
@@ -104,24 +108,24 @@ export const Company: React.FC<CompanyProps> = observer((props) => {
         )}
       </div>
       {isEdit ? (
-        <div className={styles.detailsGrid}>
+        <div className={`${styles.detailsGrid} ${styles.detailsGridEdit}`}>
           <div className={styles.row}>
             <div className={styles.label}>Agreement number:</div>
-            <Input
-              value={form.contractNo}
-              onChange={(e) =>
-                setForm((s) => ({ ...s, contractNo: e.target.value }))
-              }
-            />
-          </div>
-          <div className={styles.row}>
-            <div className={styles.label}>Date:</div>
-            <Input
-              value={form.contractDate}
-              onChange={(e) =>
-                setForm((s) => ({ ...s, contractDate: e.target.value }))
-              }
-            />
+            <div className={styles.inlineFields}>
+              <Input
+                value={form.contractNo}
+                onChange={(e) =>
+                  setForm((s) => ({ ...s, contractNo: e.target.value }))
+                }
+              />
+              <div className={styles.inlineLabel}>Date:</div>
+              <Input
+                value={form.contractDate}
+                onChange={(e) =>
+                  setForm((s) => ({ ...s, contractDate: e.target.value }))
+                }
+              />
+            </div>
           </div>
           <div className={styles.row}>
             <div className={styles.label}>Business entity:</div>

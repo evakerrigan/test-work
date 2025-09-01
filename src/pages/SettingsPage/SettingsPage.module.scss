@@ -10,9 +10,11 @@
   }
 
   &__title {
-    font-size: 24px;
-    font-weight: 600;
-    color: $color-text-secondary;
+    font-family: $font-family-base;
+    font-size: 28px;
+    font-weight: 500;
+    color: $color-text-primary;
+    letter-spacing: 0.25px;
     margin: 0 0 16px 24px;
   }
 

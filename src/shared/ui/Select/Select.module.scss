@@ -87,6 +87,8 @@
     padding: 12px;
     cursor: pointer;
     transition: background-color 0.15s ease;
+    font-weight: $font-weight-normal;
+    font-size: $font-size;
 
     &:hover {
       background-color: $color-select-option-hover-bg;
@@ -97,8 +99,8 @@
     }
 
     &--selected {
-      background-color: $color-select-option-selected-bg;
-      font-weight: $font-weight-semibold;
+      background-color: rgba(0, 0, 0, 0.05);
+      font-weight: 500;
     }
   }
 
@@ -108,8 +110,23 @@
     gap: 12px;
   }
 
-  &__checkbox {
+  &__checkboxBox {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    background: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     pointer-events: none;
+    flex: 0 0 16px;
+
+    svg {
+      width: 12px;
+      height: 12px;
+      color: #000;
+    }
   }
 
   &__native {

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Button } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input';
 import EditIcon from '@/assets/icons/Edit.svg?react';
+import CheckIcon from '@/assets/icons/Check.svg?react';
+import XIcon from '@/assets/icons/X.svg?react';
 import styles from './Contacts.module.scss';
 import { contactStore } from '@/features/contacts';
 import { observer } from 'mobx-react-lite';
@@ -52,13 +54,19 @@ export const Contacts: React.FC<ContactsProps> = observer((props) => {
         {isEdit ? (
           <div>
             <Button
-              variant="secondary"
+              variant="flattened"
+              leftIcon={<CheckIcon />}
               onClick={onSave}
               disabled={contactStore.isSaving}
             >
               Save changes
             </Button>
-            <Button variant="flattened" onClick={() => setIsEdit(false)}>
+            <Button
+              variant="flattened"
+              leftIcon={<XIcon />}
+              onClick={() => setIsEdit(false)}
+              className={styles.cancelBtn}
+            >
               Cancel
             </Button>
           </div>
@@ -73,7 +81,7 @@ export const Contacts: React.FC<ContactsProps> = observer((props) => {
         )}
       </div>
       {isEdit ? (
-        <div className={styles.detailsGrid}>
+        <div className={`${styles.detailsGrid} ${styles.detailsGridEdit}`}>
           <div className={styles.row}>
             <div className={styles.label}>Responsible person:</div>
             <Input

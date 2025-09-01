@@ -7,11 +7,12 @@
   margin: 0 auto;
 
   &__title {
-    margin: 0 0 $spacing-lg 0;
+    margin-bottom: 20px;
     font-family: $font-family-base;
-    font-size: 24px;
-    font-weight: 600;
-    color: $color-text-secondary;
+    font-size: 28px;
+    font-weight: 500;
+    color: $color-text-primary;
+    letter-spacing: 0.25px;
   }
 
   &__list {

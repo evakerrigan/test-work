@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import styles from './Select.module.scss';
+import CheckIcon from '@/assets/icons/Check.svg?react';
 
 type Option = { label: string; value: string | number };
 
@@ -219,13 +220,9 @@ export const Select: React.FC<SelectProps & DivAttrs> = (props) => {
               >
                 {isMulti ? (
                   <div className={styles['select__optionContent']}>
-                    <input
-                      type="checkbox"
-                      checked={isSelected}
-                      readOnly
-                      tabIndex={-1}
-                      className={styles['select__checkbox']}
-                    />
+                    <span className={styles['select__checkboxBox']} aria-hidden>
+                      {isSelected ? <CheckIcon /> : null}
+                    </span>
                     <span>{opt.label}</span>
                   </div>
                 ) : (
