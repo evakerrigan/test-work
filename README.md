@@ -1,4 +1,4 @@
-## Tестовое задание в компанию All Funeral
+## Tестовое задание в компанию
 
 <img src="src/assets/images/app.png" width="700" alt="Скриншот приложения">
 
