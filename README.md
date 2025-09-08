@@ -26,7 +26,7 @@ https://github.com/alan2207/bulletproof-react ⭐️ 32000 звезд
 
 ### О вакансии
 
-Вакансия: https://hh.ru/vacancy/124331882?from=share_android
+Вакансия: https://hh.ru/vacancy/124331882
 
 Компания: https://tending.app
 
@@ -37,17 +37,11 @@ https://github.com/alan2207/bulletproof-react ⭐️ 32000 звезд
 ### Старт
 
 ```bash
-git clone git@github.com:evakerrigan/test_Allfuneral.git
-```
+git clone git@github.com:evakerrigan/test-work.git
 
-```bash
-cd test_Allfuneral
-```
+cd test-work
 
-```bash
 npm install
-```
 
-```bash
 npm run dev
 ```
