@@ -78,20 +78,20 @@ export const MOCK_COMPANIES: Record<string, CompanyDto> = {
     photos: [
       {
         name: 'image1.png',
-        filepath: '/src/assets/images/image1.png',
-        thumbpath: '/src/assets/images/image1.png',
+        filepath: '/images/image1.png',
+        thumbpath: '/images/image1.png',
         createdAt: '2024-12-03T10:00:00Z',
       },
       {
         name: 'image2.png',
-        filepath: '/src/assets/images/image2.png',
-        thumbpath: '/src/assets/images/image2.png',
+        filepath: '/images/image2.png',
+        thumbpath: '/images/image2.png',
         createdAt: '2024-12-03T10:05:00Z',
       },
       {
         name: 'image3.png',
-        filepath: '/src/assets/images/image3.png',
-        thumbpath: '/src/assets/images/image3.png',
+        filepath: '/images/image3.png',
+        thumbpath: '/images/image3.png',
         createdAt: '2024-12-03T10:10:00Z',
       },
     ],
@@ -113,14 +113,14 @@ export const MOCK_COMPANIES: Record<string, CompanyDto> = {
     photos: [
       {
         name: 'image2.png',
-        filepath: '/src/assets/images/image2.png',
-        thumbpath: '/src/assets/images/image2.png',
+        filepath: '/images/image2.png',
+        thumbpath: '/images/image2.png',
         createdAt: '2024-12-03T10:05:00Z',
       },
       {
         name: 'image3.png',
-        filepath: '/src/assets/images/image3.png',
-        thumbpath: '/src/assets/images/image3.png',
+        filepath: '/images/image3.png',
+        thumbpath: '/images/image3.png',
         createdAt: '2024-12-03T10:10:00Z',
       },
     ],
@@ -142,20 +142,20 @@ export const MOCK_COMPANIES: Record<string, CompanyDto> = {
     photos: [
       {
         name: 'image3.png',
-        filepath: '/src/assets/images/image3.png',
-        thumbpath: '/src/assets/images/image3.png',
+        filepath: '/images/image3.png',
+        thumbpath: '/images/image3.png',
         createdAt: '2024-12-03T10:10:00Z',
       },
       {
         name: 'image1.png',
-        filepath: '/src/assets/images/image1.png',
-        thumbpath: '/src/assets/images/image1.png',
+        filepath: '/images/image1.png',
+        thumbpath: '/images/image1.png',
         createdAt: '2024-12-03T10:00:00Z',
       },
       {
         name: 'image2.png',
-        filepath: '/src/assets/images/image2.png',
-        thumbpath: '/src/assets/images/image2.png',
+        filepath: '/images/image2.png',
+        thumbpath: '/images/image2.png',
         createdAt: '2024-12-03T10:05:00Z',
       },
     ],
@@ -177,20 +177,20 @@ export const MOCK_COMPANIES: Record<string, CompanyDto> = {
     photos: [
       {
         name: 'image3.png',
-        filepath: '/src/assets/images/image3.png',
-        thumbpath: '/src/assets/images/image3.png',
+        filepath: '/images/image3.png',
+        thumbpath: '/images/image3.png',
         createdAt: '2024-12-03T10:10:00Z',
       },
       {
         name: 'image1.png',
-        filepath: '/src/assets/images/image1.png',
-        thumbpath: '/src/assets/images/image1.png',
+        filepath: '/images/image1.png',
+        thumbpath: '/images/image1.png',
         createdAt: '2024-12-03T10:00:00Z',
       },
       {
         name: 'image2.png',
-        filepath: '/src/assets/images/image2.png',
-        thumbpath: '/src/assets/images/image2.png',
+        filepath: '/images/image2.png',
+        thumbpath: '/images/image2.png',
         createdAt: '2024-12-03T10:05:00Z',
       },
     ],
@@ -212,14 +212,14 @@ export const MOCK_COMPANIES: Record<string, CompanyDto> = {
     photos: [
       {
         name: 'image3.png',
-        filepath: '/src/assets/images/image3.png',
-        thumbpath: '/src/assets/images/image3.png',
+        filepath: '/images/image3.png',
+        thumbpath: '/images/image3.png',
         createdAt: '2024-12-03T10:10:00Z',
       },
       {
         name: 'image2.png',
-        filepath: '/src/assets/images/image2.png',
-        thumbpath: '/src/assets/images/image2.png',
+        filepath: '/images/image2.png',
+        thumbpath: '/images/image2.png',
         createdAt: '2024-12-03T10:05:00Z',
       },
     ],
