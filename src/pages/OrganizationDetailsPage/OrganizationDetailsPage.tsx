@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Button } from '@/shared/ui/Button';
-import { Input } from '@/shared/ui/Input';
-import { Modal } from '@/shared/ui/Modal';
+import { Button, Input, Modal } from '@/shared/ui';
 import EditIcon from '@/assets/icons/Edit.svg?react';
 import TrashIcon from '@/assets/icons/Trash.svg?react';
 import LeftIcon from '@/assets/icons/Left.svg?react';
@@ -56,13 +54,13 @@ export const OrganizationDetailsPage = observer(() => {
     return (
       <div className={styles.page}>
         <div className={styles.header}>
-          <Button
-            variant="flattened"
+          <button
             onClick={() => navigate('/organizations')}
+            className={styles.backButton}
             aria-label="Назад"
           >
             <LeftIcon />
-          </Button>
+          </button>
           <h1 className={styles.title}>Organization not found</h1>
         </div>
         <p className={styles.notFoundDescription}>
